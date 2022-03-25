@@ -34,4 +34,10 @@ class ArticlesController < ApplicationController
         render 'new' # renders new article template if article does not save
         end
     end
+
+    def destroy
+        @article = Article.find(params[:id]) # finding article from articles table by id
+        @article.destroy
+        redirect_to articles_path # articles_path will take us to articles listing page
+    end
 end
