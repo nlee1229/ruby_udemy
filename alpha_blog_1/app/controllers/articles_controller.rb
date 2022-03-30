@@ -27,6 +27,7 @@ class ArticlesController < ApplicationController
 
     def create                                                  # keys that we want to permit to be used to create article instance
         @article = Article.new(article_params)
+        @articke,user = User.first
         if @article.save
             flash[:notice] = "Article was created successfully!"
         redirect_to @article # rails extracts id from @article 
